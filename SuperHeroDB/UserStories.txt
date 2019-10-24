@@ -5,7 +5,7 @@ You may NOT use scaffolding for the controller
 You may use scaffolding for the four views
 Use bootstrap to style the app
 60 points
-(5 points) As a developer, I want to make good, consistent commits.
+--(5 points) As a developer, I want to make good, consistent commits.
 (5 points) As a superhero fan, I want to view a list of superheroes.
 (10 points) As a superhero fan, I want to click on a superhero name from the list and 
 	view that superhero’s name, alter ego, primary superhero ability, secondary superhero 

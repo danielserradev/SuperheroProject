@@ -28,5 +28,6 @@ namespace SuperHeroDB.Controllers
 
             return View();
         }
+        
     }
 }

@@ -17,13 +17,16 @@ namespace SuperHeroDB.Controllers
         // GET: Superheroes
         public ActionResult Index()
         {
-            return View();
+            return View(context.Superheroes.ToList());
         }
 
         // GET: Superheroes/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Superhero superhero = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
+
+            return View(superhero);
+            
         }
 
         // GET: Superheroes/Create
@@ -53,17 +56,27 @@ namespace SuperHeroDB.Controllers
         // GET: Superheroes/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Superhero superhero = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
+            return View(superhero);
         }
 
         // POST: Superheroes/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Superhero superhero)
         {
             try
             {
                 // TODO: Add update logic here
-
+                Superhero editedSuperhero = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
+                //context.Superheroes.Add(superhero);
+                editedSuperhero.Id = superhero.Id;
+                editedSuperhero.name = superhero.name;
+                editedSuperhero.alterEgo = superhero.alterEgo;
+                editedSuperhero.primarySuperheroAbility = superhero.primarySuperheroAbility;
+                editedSuperhero.secondarySuperheroAbility = superhero.secondarySuperheroAbility;
+                editedSuperhero.catchphrase = superhero.catchphrase;
+                
+                context.SaveChanges(); 
                 return RedirectToAction("Index");
             }
             catch
@@ -75,17 +88,20 @@ namespace SuperHeroDB.Controllers
         // GET: Superheroes/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Superhero superhero = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
+            return View(superhero);
         }
 
         // POST: Superheroes/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Superhero superhero)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                Superhero deletedSuperhero = context.Superheroes.Where(s => s.Id == id).FirstOrDefault();
+                context.Superheroes.Remove(deletedSuperhero);
+                context.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
