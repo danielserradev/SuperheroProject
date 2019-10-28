@@ -187,6 +187,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\Chewbacca_SWGTCG3.jpg" />
+    <Content Include="Content\grayscale.css" />
+    <Content Include="Content\grayscale.min.css" />
+    <Content Include="Views\Superheroes\chewbacca.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
